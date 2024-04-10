@@ -1,0 +1,23 @@
+.search {
+  max-width: 500px;
+  display: flex;
+  column-gap: .5rem;
+  align-items: center;
+  flex: 1;
+}
+
+.btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+
+.input {
+  flex: 1;
+}
