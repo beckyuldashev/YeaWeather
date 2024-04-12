@@ -1,8 +1,8 @@
+import Spinner from '@/shared/ui/spinner/Spinner';
 import FavoritesCityItem from '@/entities/weather/ui/favoritesCityItem/FavoritesCityItem';
+import { useGetFavoritesCityDataQuery } from '@/entities/weather/api/weatherApi';
 
 import cl from './styles.module.css';
-import { useGetFavoritesCityDataQuery } from '@/entities/weather/api/weatherApi';
-import Spinner from '@/shared/ui/spinner/Spinner';
 
 const FavoritesList = () => {
   const { data, isLoading, error } = useGetFavoritesCityDataQuery(null);

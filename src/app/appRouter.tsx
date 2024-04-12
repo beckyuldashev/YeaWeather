@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 
 import { ErrorPage } from '@/pages/error/ui/ErrorPage';
 import { HomePage } from '@/pages/home/ui/HomePage';
-import { SearchHistoryPage } from '@/pages/searchHistory/SearchHistory';
+import { WeatherSearchHistoryPage } from '@/pages/searchHistory/WeatherSearchHistory';
 
 export const appRouter = createBrowserRouter([
   {
@@ -12,6 +12,6 @@ export const appRouter = createBrowserRouter([
   },
   {
     path: '/search-history',
-    element: <SearchHistoryPage />,
+    element: <WeatherSearchHistoryPage />,
   },
 ]);
