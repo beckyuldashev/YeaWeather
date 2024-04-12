@@ -1,6 +1,6 @@
 import cl from './styles.module.css';
 
-import { IndicatorsData } from './indicatorsList.model';
+import { IndicatorsData } from './weatherIndicators.model';
 
 interface IndicatorsDataProps {
   indicatorsData: IndicatorsData[];

@@ -1,21 +1,20 @@
-import { IWeather } from '../../model/types';
-
-import IndicatorsList from './indicatorsList/IndicatorsList';
-import { formatTime } from '@/shared/helpers/formatTime';
-
 import HumidityIcon from '@/shared/icons/HumidityIcon';
 import TemperatureIcon from '@/shared/icons/TemperatureIcon';
 import WindyIcon from '@/shared/icons/WindyIcon';
 import SunriseIcon from '@/shared/icons/Sunrise';
 import SunsetIcon from '@/shared/icons/Sunset';
+import { formatTime } from '@/shared/helpers/formatTime';
+import { IWeather } from '../../model/types';
+import IndicatorsList from './weatherIndicators/WeatherIndicators';
 
 import cl from './styles.module.css';
 
 interface WeatherDataProps {
-  weatherData: IWeather | undefined;
+  weatherData: IWeather;
 }
 
 const WeatherItem = ({ weatherData }: WeatherDataProps) => {
+  console.log(weatherData);
   const { main, name, weather, sys, wind } = weatherData;
   const indicatorsData = [
     {

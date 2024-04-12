@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
 import HistoryIcon from '@/shared/icons/HistoryIcon';
+import { SearchWeather } from '@/features/searchWeather/ui/SearchWeather';
 
 import cl from './styles.module.css';
-import { Search } from '@/features/search/ui/Search';
 
 const Header = () => {
   return (
     <header className={cl.header}>
-      <Search />
+      <SearchWeather />
       <Link to="/search-history">
         <HistoryIcon />
       </Link>
