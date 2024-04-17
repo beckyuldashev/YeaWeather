@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import qs from 'qs';
 
-import { useAppDispatch } from '@/app/appStore';
-import { setSearchTerm } from '@/entities/weather/model/weatherSlice';
+import { useLazyGetWeatherDataQuery } from '@/entities/weather/api/weatherApi';
+import { capitalize } from '@/shared/helpers/capitalize';
 import Input from '@/shared/ui/input/Input';
 import SearchIcon from '@/shared/icons/SearchIcon';
 
@@ -9,10 +11,20 @@ import cl from './styles.module.css';
 
 export const SearchWeather = () => {
   const [searchValue, setSearchValue] = useState('');
-  const dispatch = useAppDispatch();
+  const [getWeatherFromSearch] = useLazyGetWeatherDataQuery();
+  const navigate = useNavigate();
+
   const onSearchCity = () => {
-    console.log(searchValue);
-    dispatch(setSearchTerm(searchValue));
+    if (!searchValue) return;
+
+    getWeatherFromSearch(capitalize(searchValue));
+    setSearchValue('');
+
+    const queryString = qs.stringify({
+      city: capitalize(searchValue),
+    });
+
+    navigate(`?${queryString}`);
   };
 
   return (
