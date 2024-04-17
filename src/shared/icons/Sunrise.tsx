@@ -1,11 +1,8 @@
-const SunriseIcon = ({ width = '24px', height = '24px' }) => {
+import { SVGProps } from 'react';
+
+const SunriseIcon = ({ width = '24px', height = '24px' }: SVGProps<SVGSVGElement>) => {
   return (
-    <svg
-      width={width}
-      height={height}
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M20 59.6875C20 51.731 23.1607 44.1004 28.7868 38.4743C34.4129 32.8482 42.0435 29.6875 50 29.6875C57.9565 29.6875 65.5871 32.8482 71.2132 38.4743C76.8393 44.1004 80 51.731 80 59.6875"
         fill="#FCFC07"

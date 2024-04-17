@@ -1,4 +1,6 @@
-const WindyIcon = ({ width = '24px', height = '24px' }) => {
+import { SVGProps } from 'react';
+
+const WindyIcon = ({ width = '24px', height = '24px' }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width={width}

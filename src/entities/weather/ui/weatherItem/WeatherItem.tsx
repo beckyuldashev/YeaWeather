@@ -10,36 +10,40 @@ import IndicatorsList from './weatherIndicators/WeatherIndicators';
 import cl from './styles.module.css';
 
 interface WeatherDataProps {
-  weatherData: IWeather;
+  weatherData: IWeather | null;
 }
 
 const WeatherItem = ({ weatherData }: WeatherDataProps) => {
+  if (!weatherData) {
+    return <h1>Oops! Weather data is not found</h1>;
+  }
+
   const { main, name, weather, sys, wind } = weatherData;
   const indicatorsData = [
     {
       title: 'feels like',
       value: main.feels_like + '°C',
-      icon: TemperatureIcon,
+      Icon: TemperatureIcon,
     },
     {
       title: 'humidity',
       value: main.humidity + '%',
-      icon: HumidityIcon,
+      Icon: HumidityIcon,
     },
     {
       title: 'wind',
       value: wind.speed + ' m/s',
-      icon: WindyIcon,
+      Icon: WindyIcon,
     },
     {
       title: 'sunrise',
       value: formatTime(sys.sunrise),
-      icon: SunriseIcon,
+      Icon: SunriseIcon,
     },
     {
       title: 'sunset',
       value: formatTime(sys.sunset),
-      icon: SunsetIcon,
+      Icon: SunsetIcon,
     },
   ];
 
