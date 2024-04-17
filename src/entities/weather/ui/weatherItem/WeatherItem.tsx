@@ -14,7 +14,6 @@ interface WeatherDataProps {
 }
 
 const WeatherItem = ({ weatherData }: WeatherDataProps) => {
-  console.log(weatherData);
   const { main, name, weather, sys, wind } = weatherData;
   const indicatorsData = [
     {

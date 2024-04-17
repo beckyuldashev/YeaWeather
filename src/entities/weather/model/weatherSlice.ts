@@ -1,15 +1,15 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { IWeather } from './types';
+import { IWeather, IWeatherHistory } from './types';
 
 interface State {
   weatherData: IWeather | null;
-  searchTerm: string;
+  history: IWeatherHistory[];
 }
 
 const initialState: State = {
   weatherData: null,
-  searchTerm: 'Moscow',
+  history: [],
 };
 
 export const weatherSlice = createSlice({
@@ -19,12 +19,12 @@ export const weatherSlice = createSlice({
     setWeatherData: (state, action: PayloadAction<IWeather>) => {
       state.weatherData = action.payload;
     },
-    setSearchTerm: (state, action: PayloadAction<string>) => {
-      state.searchTerm = action.payload;
+    setHistory: (state, action: PayloadAction<IWeatherHistory>) => {
+      state.history.unshift(action.payload);
     },
   },
 });
 
-export const { setWeatherData, setSearchTerm } = weatherSlice.actions;
+export const { setWeatherData, setHistory } = weatherSlice.actions;
 
 export default weatherSlice.reducer;

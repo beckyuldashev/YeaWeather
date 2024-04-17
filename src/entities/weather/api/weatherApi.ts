@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 import { FavoritesCityResponse, IWeather } from '../model/types';
-import { setWeatherData } from '../model/weatherSlice';
+import { setHistory, setWeatherData } from '../model/weatherSlice';
+import { formatDate } from '@/shared/helpers/formatDate';
 
 const BASE_URL = import.meta.env.VITE_WEATHER_API_BASE_URL;
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -25,6 +26,7 @@ export const weatherApi = createApi({
         const result = await queryFulfilled;
         const data = result.data;
 
+        dispatch(setHistory({ city: data.name, date: formatDate(new Date()) }));
         dispatch(setWeatherData(data));
       },
     }),
@@ -43,4 +45,5 @@ export const weatherApi = createApi({
   }),
 });
 
-export const { useGetWeatherDataQuery, useGetFavoritesCityDataQuery } = weatherApi;
+export const { useGetWeatherDataQuery, useGetFavoritesCityDataQuery, useLazyGetWeatherDataQuery } =
+  weatherApi;

@@ -39,3 +39,8 @@ export interface FavoritesCityResponse {
   cnt: number;
   list: IWeather[];
 }
+
+export interface IWeatherHistory {
+  city: string;
+  date: string;
+}
