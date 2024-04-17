@@ -1,0 +1,6 @@
+.input {
+  padding: .75rem;
+  font-size: clamp(0.75rem, 3vw, 1rem);
+  border-radius: 1rem;
+  border: none;
+}

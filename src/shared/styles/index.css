@@ -12,12 +12,14 @@ html {
 
 body, h1, h2, h3, h4, p,
 figure, blockquote, dl, dd {
-  margin-block-end: 0;
+  margin: 0;
 }
 
 ul,
 ol {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 h1, h2, h3, h4,
@@ -46,4 +48,21 @@ input, button,
 textarea, select {
   font-family: inherit;
   font-size: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+body {
+  background-color: #16161a;
+  color: #fffffe;
+  font-family: "Montserrat", sans-serif;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 768px;
+  margin-inline: auto;
 }
