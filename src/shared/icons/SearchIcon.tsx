@@ -1,4 +1,6 @@
-const SearchIcon = ({ width = '24px', height = '24px' }) => {
+import { SVGProps } from 'react';
+
+const SearchIcon = ({ width = '24px', height = '24px' }: SVGProps<SVGSVGElement>) => {
   return (
     <svg width={width} height={height} viewBox="0 0 24 24" fill="none">
       <path

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import qs from 'qs';
+import { useLocation } from 'react-router-dom';
 
 import { useAppSelector } from '@/app/appStore';
 import Header from '@/widgets/header/Header';
@@ -11,6 +10,7 @@ import {
   useLazyGetWeatherDataQuery,
 } from '@/entities/weather/api/weatherApi';
 import Spinner from '@/shared/ui/spinner/Spinner';
+import { getParam } from '@/shared/helpers/getParam';
 
 import cl from './styles.module.css';
 
@@ -19,17 +19,13 @@ export const HomePage = () => {
 
   const weatherData = useAppSelector((state) => state.weather.weatherData);
 
-  const { isLoading, error } = useGetWeatherDataQuery(
-    search ? qs.parse(search.substring(1)).city : 'Moscow',
-  );
+  const { isLoading, error } = useGetWeatherDataQuery(search ? getParam(search, 'city') : 'Moscow');
 
   const [getWeatherFromSearch] = useLazyGetWeatherDataQuery();
 
   useEffect(() => {
     if (search) {
-      const params = qs.parse(search.substring(1));
-
-      getWeatherFromSearch(params.city);
+      getWeatherFromSearch(getParam(search, 'city'));
     }
   }, []);
 
@@ -40,7 +36,7 @@ export const HomePage = () => {
         <Spinner />
       ) : (
         <>
-          {error ? (
+          {error && 'status' in error ? (
             <h1>Произошла ошибка при загрузке: {error.status}</h1>
           ) : (
             <WeatherItem weatherData={weatherData} />

@@ -9,11 +9,11 @@ interface IndicatorsDataProps {
 const IndicatorsList = ({ indicatorsData }: IndicatorsDataProps) => {
   return (
     <ul className={cl.indicators}>
-      {indicatorsData.map((indicator, index) => (
+      {indicatorsData.map(({ Icon, value, title }, index) => (
         <li key={index} className={cl.indicator}>
-          <indicator.icon />
-          <span>{indicator.value}</span>
-          <span>{indicator.title}</span>
+          <Icon />
+          <span>{value}</span>
+          <span>{title}</span>
         </li>
       ))}
     </ul>

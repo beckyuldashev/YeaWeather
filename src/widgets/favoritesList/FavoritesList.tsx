@@ -22,7 +22,7 @@ const FavoritesList = () => {
         </li>
       ))}
 
-      {error && <h1>Произошла ошибка при загрузке: {error.status}</h1>}
+      {error && 'status' in error && <h1>Произошла ошибка при загрузке: {error.status}</h1>}
     </ul>
   );
 };

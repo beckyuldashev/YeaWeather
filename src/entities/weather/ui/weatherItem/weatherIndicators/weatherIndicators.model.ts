@@ -1,7 +1,7 @@
-import { ReactSVGElement } from 'react';
+import { ElementType } from 'react';
 
 export interface IndicatorsData {
   title: string;
-  value: number;
-  icon: ReactSVGElement;
+  value: string;
+  Icon: ElementType;
 }
